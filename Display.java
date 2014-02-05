@@ -38,33 +38,6 @@ public class Display {
 
     }
 
-    public void debug() {
-        print("\n");
-        for (int col = 0; col < height - 1; col++) {
-            for (int row = 0; row <= width; row++) {
-                //Loop through all penguins
-                for (Cells cell : debug) {
-                    if (cell.y == col && cell.x == row) {
-                        therea = cell.a;
-                    }
-                }
-                if (therea == 0) {
-                    print("X");
-                    therea = -2;
-                } else if (therea == 1) {
-                    print("O");
-                    therea = -2;
-                } else {
-                    print(".");
-                }
-
-            }
-            print("\n");
-
-        }
-        debug.clear();
-    }
-
 
     //'Cause I am lazy :P
     private static void print(Object s) {

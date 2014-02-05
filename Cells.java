@@ -8,11 +8,5 @@ public class Cells {
         a = 0;
     }
 
-    public Cells(int newx, int newy, int aa) {
-        x = newx;
-        y = newy;
-        a = aa;
-    }
-
     public int x, y, a;
 }
