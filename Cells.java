@@ -6,6 +6,5 @@ class Cells {
         x = newx;
         y = newy;
     }
-
     public final int x, y;
 }

@@ -8,7 +8,6 @@ import java.util.ArrayList;
 class Run {
 
     public static void main(String[] args) throws IOException, CloneNotSupportedException, InterruptedException {
-        Display d = new Display();
         ReadFile read = new ReadFile();
         read.run();
         Boolean stuff = true;
@@ -20,15 +19,15 @@ class Run {
         window.setVisible(true);
         ArrayList<Cells> clone = new ArrayList<Cells>();
         while (stuff) {
-            stuff = Evolve(clone, d, window, g);
-            int sleep = 250;
+            stuff = Evolve(clone, window, g);
+            int sleep = 1000;
             Thread.sleep(sleep);
         }
     }
-    public static Boolean Evolve(ArrayList<Cells> clone, Display d, JFrame window, GUI g) {
+    public static Boolean Evolve(ArrayList<Cells> clone, JFrame window, GUI g) {
         ArrayList<Cells> news = ReadFile.getArray();
-        for (int row = 0; row <= d.width; row++) {
-            for (int col = 0; col < d.height - 1; col++) {
+        for (int row = 0; row <= g.width; row++) {
+            for (int col = 0; col < g.height - 1; col++) {
                 Cells last = null;
                 int neighbors = 0;
                 for (Cells celli : news) {
