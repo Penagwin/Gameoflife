@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -11,14 +12,20 @@ class Run {
         ReadFile read = new ReadFile();
         read.run();
         Boolean stuff = true;
+        JFrame window = new JFrame();
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setBounds(30, 30, 300, 300);
+        GUI g = new GUI();
+        window.getContentPane().add(g);
+        window.setVisible(true);
         ArrayList<Cells> clone = new ArrayList<Cells>();
         while (stuff) {
-            stuff = Evolve(clone, d);
+            stuff = Evolve(clone, d, window, g);
             int sleep = 250;
             Thread.sleep(sleep);
         }
     }
-    private static Boolean Evolve(ArrayList<Cells> clone, Display d) {
+    public static Boolean Evolve(ArrayList<Cells> clone, Display d, JFrame window, GUI g) {
         ArrayList<Cells> news = ReadFile.getArray();
         for (int row = 0; row <= d.width; row++) {
             for (int col = 0; col < d.height - 1; col++) {
@@ -55,7 +62,8 @@ class Run {
             }
         }
         ReadFile.setArray(clone);
-        d.write(clone);
+        g.setArray(clone);
+        window.repaint();
         clone.clear();
         return !ReadFile.getArray().isEmpty();
     }

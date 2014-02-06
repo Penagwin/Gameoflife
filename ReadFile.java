@@ -10,8 +10,6 @@ class ReadFile {
     private int x;
     private int y = 0;
     private static ArrayList<Cells> origin = new ArrayList<Cells>();
-    public static ArrayList<Cells> empty = new ArrayList<Cells>();
-
     public void run() throws IOException {
         FileInputStream file = new FileInputStream("cells.txt");
         while ((r = file.read()) != -1) {
